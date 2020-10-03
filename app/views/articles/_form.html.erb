@@ -1,0 +1,66 @@
+<%= form_with(model: article, local: true) do |form| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+        <% article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!--<div class="field">
+    <%= form.label :投稿内容%>
+    <%= form.text_field :content %>
+  </div>
+
+   <div class="field">
+    <%= form.label :どんな気分 %>
+    <%= form.text_field :feeling %>
+  </div>
+
+  <div class="field">
+    <%= form.label :投稿者名 %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :更新ボタン%>
+  </div>-->
+
+
+
+
+
+
+
+    <form>
+    <p>
+    <label>
+      <%= form.label :投稿者名 %>
+      <%= form.text_field :name %>
+    </label>
+    </p>
+
+    <p>
+    <label>
+        <%= form.label :どんな気分 %>
+        <%= form.text_field :feeling %>
+    </label>
+    </p>
+
+    <p>
+    <label>
+        <%= form.label :投稿内容%>
+        <%= form.text_area:content %>
+    </label>
+    </p>
+
+
+    <p>
+    <%= form.submit :投稿する%>
+    </p>
+    </form>
+<% end %>

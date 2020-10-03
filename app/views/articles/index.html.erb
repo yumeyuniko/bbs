@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+<h1>投稿記事一覧</h1>
+  <table class="table01">
+    <thead>
+      <tr>
+        <th></th>
+        <th>内容</th>
+        <th>投稿者名</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <th>投稿<%= article.id %></th>
+        <td label><p><%= article.content %></p><p><%= article.created_at.strftime('%Y年 %m月 %d日 %H時 %M分') %></p></td>
+        <td label="投稿者名"><p><%= article.name %></p><p><%= article.feeling %></p></td>
+        <td label=>
+        <p><%= link_to '詳細', article %></p>
+        <p><%= link_to '編集', edit_article_path(article) %></p>
+        <p><%= link_to '削除', article, method: :delete, data: { confirm: 'ほんとに消す?' } %></p>
+        </td>
+      </tr>
+      <tr>
+      <% end %>
+    </tbody>
+    <tr></tr>
+  </table>
+
+<!--
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Name</th>
+      <th>Feeling</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.content %></td>
+        <td><%= article.name %></td>
+        <td><%= article.feeling %></td>
+        <td><%= link_to 'Show', article %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'ほんとに消す?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+-->
+
+
+
+<br>
+<%= link_to '新規投稿ページ', new_article_path %>
